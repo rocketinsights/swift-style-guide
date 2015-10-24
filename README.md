@@ -9,7 +9,7 @@
 * [Classes and Structures](#classes-and-structures)
   * [Use of Self](#use-of-self)
   * [Computed Properties](#computed-properties)
-* [Function Declarations](#function-declarations)
+  * [Method Declarations](#function-declarations)
 * [Closure Expressions](#closure-expressions)
 * [Types](#types)
   * [Constants](#constants)
@@ -18,6 +18,7 @@
   * [Type Inference](#type-inference)
   * [Syntactic Sugar](#syntactic-sugar)
 * [Control Flow](#control-flow)
+  * [Guard](#guard)
 * [Credits](#credits)
 
 
@@ -152,9 +153,9 @@ var diameter: Double {
 }
 ```
 
-## Function Declarations
+### Method Declarations
 
-Keep short function declarations on one line including the opening brace:
+Keep short func declarations on one line including the opening brace:
 
 ```swift
 func reticulateSplines(spline: [Double]) -> Bool {
@@ -351,23 +352,41 @@ Prefer the `for-in` style of `for` loop over the `for-condition-increment` style
 **Preferred:**
 ```swift
 for _ in 0..<3 {
-  println("Hello three times")
+  println("Group of owls is a parliament")
 }
 
-for (index, person) in enumerate(attendeeList) {
-  println("\(person) is at position #\(index)")
+for (index, owl) in enumerate(owls) {
+  println("\(owl) is at position #\(index)")
 }
 ```
 
 **Not Preferred:**
 ```swift
 for var i = 0; i < 3; i++ {
-  println("Hello three times")
+  println("Group of owls is a parliament")
 }
 
-for var i = 0; i < attendeeList.count; i++ {
-  let person = attendeeList[i]
-  println("\(person) is at position #\(i)")
+for var i = 0; i < owls.count; i++ {
+  let owl = owls[i]
+  println("\(owl) is at position #\(i)")
+}
+```
+
+### Guard
+The guard statement can and should be used to avoid the pyramid of doom. Exit out of methods early if input does not meet requirements.
+
+**Preferred**
+```swift
+guard let raftOfOtters = raftOfOtters else { return }
+// Use unwrapped `raftOfOtters` value in here
+```
+
+** Not Preferred**
+```swift
+if let raftOfOtters = raftOfOtters {
+    // Use unwrapped `raftOfOtters` value in here
+} else {
+    return
 }
 ```
 
