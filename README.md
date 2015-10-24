@@ -1,8 +1,9 @@
 ## Table of Contents
 
+* [Overview](#overview)
 * [Naming](#naming)
-  * [Prose](#prose)
   * [Idioms](#idioms)
+  * [Enumerations](#enumerations) 
 * [Spacing](#spacing)
 * [Comments](#comments)
 * [Classes and Structures](#classes-and-structures)
@@ -17,11 +18,12 @@
   * [Type Inference](#type-inference)
   * [Syntactic Sugar](#syntactic-sugar)
 * [Control Flow](#control-flow)
-* [Semicolons](#semicolons)
+* [Credits](#credits)
 
 
 ## Overview
 This document captures the Swift style at Virgin Pulse. Note, we also have several higher level idioms and gotchas to look out for [here](https://bitbucket.org/vpulse/ios-genesis-app/wiki/Code%20Review%20Process%20+%20Things%20to%20Look%20For)
+
 ## Naming
 
 Use descriptive names with camel case for classes, methods, variables, etc. Class names should be capitalized, while method names and variables should start with a lower case letter.
@@ -56,6 +58,8 @@ class Guideline {
   func upvoteBy(amount: Int) { ... }
 }
 ```
+### Idioms
+* Use **Id** and not **ID**.
 
 ### Enumerations
 
@@ -69,9 +73,6 @@ enum Shape {
   case Circle
 }
 ```
-
-### Idioms
-* Use **Id** and not **ID**. The Genesis server has standardized on Id.
 
 ## Spacing
 
@@ -108,6 +109,7 @@ When they are needed, use comments to explain **why** a particular piece of code
 
 Avoid block comments inline with code, as the code should be as self-documenting as possible. *Exception: This does not apply to those comments used to generate documentation.*
 
+## Classes and Structures
 
 ### Use of Self
 
