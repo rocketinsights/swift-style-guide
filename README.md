@@ -3,7 +3,7 @@
 * [Overview](#overview)
 * [Naming](#naming)
   * [Idioms](#idioms)
-  * [Enumerations](#enumerations) 
+  * [Enumerations](#enumerations)
 * [Spacing](#spacing)
 * [Comments](#comments)
 * [Classes and Structures](#classes-and-structures)
@@ -23,7 +23,7 @@
 
 
 ## Overview
-This document captures the Swift style at Virgin Pulse. Note, we also have several higher level idioms and gotchas to look out for [here](https://bitbucket.org/vpulse/ios-genesis-app/wiki/Code%20Review%20Process%20+%20Things%20to%20Look%20For)
+This document captures the Swift style that is followed by all apps developed at Rocket Insights. We also have several higher level idioms and gotchas to look out for [here](https://github.com/rocketinsights/ios-guidelines).
 
 ## Naming
 
@@ -77,7 +77,7 @@ enum Shape {
 
 ## Spacing
 
-* Indent using 4 spaces rather than tabs to conserve space and help prevent line wrapping. 
+* Indent using 4 spaces rather than tabs to conserve space and help prevent line wrapping.
 * Method braces and other braces (`if`/`switch`/`while` etc.) always open on the same line as the statement but close on a new line.
 * `else` braces always open on the next line
 * Tip: You can re-indent by selecting some code (or ⌘A to select all) and then Control-I (or Editor\Structure\Re-Indent in the menu). Some of the Xcode template code will have 4-space tabs hard coded, so this is a good way to fix that.
@@ -86,7 +86,7 @@ enum Shape {
 ```swift
 if user.isHappy {
   // Do something
-} 
+}
 else {
   // Do something else
 }
@@ -125,7 +125,7 @@ class BoardLocation {
   init(row: Int, column: Int) {
     self.row = row
     self.column = column
-    
+
     let closure = {
       println(self.row)
     }
