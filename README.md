@@ -51,12 +51,12 @@ class app_widgetContainer {
 }
 ```
 
-For methods, follow the standard Apple convention of referring to the first parameter in the method name:
+For methods, when the first argument is part of a prepositional phrase, make the preposition the first label and use the actual argument name inside the method definition:
 
 ```swift
 class Guideline {
-  func combineWithString(incoming: String, options: Dictionary?) { ... }
-  func upvoteBy(amount: Int) { ... }
+  func combine(with incoming: String, options: Dictionary?) { ... }
+  func upvote(by amount: Int) { ... }
 }
 ```
 ### Idioms
@@ -64,14 +64,14 @@ class Guideline {
 
 ### Enumerations
 
-Use UpperCamelCase for enumeration values:
+Use camelCase for enumeration values:
 
 ```swift
 enum Shape {
-  case Rectangle
-  case Square
-  case Triangle
-  case Circle
+  case rectangle
+  case square
+  case triangle
+  case circle
 }
 ```
 
@@ -127,7 +127,7 @@ class BoardLocation {
     self.column = column
 
     let closure = {
-      println(self.row)
+      print(self.row)
     }
   }
 }
@@ -158,16 +158,16 @@ var diameter: Double {
 Keep short func declarations on one line including the opening brace:
 
 ```swift
-func reticulateSplines(spline: [Double]) -> Bool {
+func reticulateSpline(_ spline: [Double]) -> Bool {
   // reticulate code goes here
 }
 ```
 
-For functions with long signatures, add line breaks at appropriate points and add an extra indent on subsequent lines:
+For functions with long signatures, still use one line, relying on IDE line wrapping, and separate the function body from declaration by an empty line for better readability:
 
 ```swift
-func reticulateSplines(spline: [Double], adjustmentFactor: Double,
-    translateConstant: Int, comment: String) -> Bool {
+func reticulateSpline(_ spline: [Double], adjustmentFactor: Double, translateConstant: Int, comment: String) -> Bool {
+
   // reticulate code goes here
 }
 ```
@@ -183,7 +183,8 @@ UIView.animateWithDuration(1.0) {
   self.myView.alpha = 0
 }
 
-UIView.animateWithDuration(1.0,
+UIView.animateWithDuration(
+  1.0,
   animations: {
     self.myView.alpha = 0
   },
@@ -306,13 +307,14 @@ Prefer the struct-scope constants `CGRect.infiniteRect`, `CGRect.nullRect`, etc.
 
 ### Type Inference
 
-Prefer compact code and let the compiler infer the type for a constant or variable, unless you need a specific type other than the default such as `CGFloat` or `Int16`.
+Prefer compact code and let the compiler infer the type for a constant or variable, unless you need a specific type other than the default such as `CGFloat` or `Int16`. If the type cannot be inferred but is defined by a constant / static member, add the type specifier after the variable to emphasize the value.
 
 **Preferred:**
 ```swift
 let message = "Click the button"
 let currentBounds = computeViewBounds()
-var names = [String]()
+var names: [String] = []
+let color: UIColor = .black
 let maximumWidth: CGFloat = 106.5
 ```
 
@@ -320,7 +322,9 @@ let maximumWidth: CGFloat = 106.5
 ```swift
 let message: String = "Click the button"
 let currentBounds: CGRect = computeViewBounds()
-var names: [String] = []
+var names = [String]()
+let color = UIColor.black
+let maximumWidth = CGFloat(106.5)
 ```
 
 **NOTE**: Following this guideline means picking descriptive names is even more important than before.
@@ -342,34 +346,6 @@ var faxNumber: Int?
 var deviceModels: Array<String>
 var employees: Dictionary<Int, String>
 var faxNumber: Optional<Int>
-```
-
-
-## Control Flow
-
-Prefer the `for-in` style of `for` loop over the `for-condition-increment` style.
-
-**Preferred:**
-```swift
-for _ in 0..<3 {
-  println("Group of owls is a parliament")
-}
-
-for (index, owl) in enumerate(owls) {
-  println("\(owl) is at position #\(index)")
-}
-```
-
-**Not Preferred:**
-```swift
-for var i = 0; i < 3; i++ {
-  println("Group of owls is a parliament")
-}
-
-for var i = 0; i < owls.count; i++ {
-  let owl = owls[i]
-  println("\(owl) is at position #\(i)")
-}
 ```
 
 ### Guard
